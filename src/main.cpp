@@ -69,12 +69,6 @@ int main()
 		program_error();
 	}
 
-	snake.push_back({x : random_int(1, WIDTH - 2), y : random_int(1, HEIGHT - 2)});
-	snake.push_back({x : snake[0].x + 1, y : snake[0].y});
-	snake.push_back({x : snake[0].x + 2, y : snake[0].y});
-	snake.push_back({x : snake[0].x + 3, y : snake[0].y});
-	snake.push_back({x : snake[0].x + 4, y : snake[0].y});
-
 	while (true)
 	{
 		if (!can_generate_prize)
