@@ -8,6 +8,7 @@ int random_int(int range_init, int range_end)
 	if (!seeded)
 	{
 		srand((unsigned)time(0));
+		seeded = 1;
 	}
 
 	return range_init + (rand() % range_end);
