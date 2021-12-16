@@ -42,7 +42,7 @@ void generate_snake_piece(vector<Point> &snake, stack<char> commands, int width,
 
 	char last_command;
 
-	while (commands.size() != 1)
+	while (!commands.empty())
 	{
 		last_command = commands.top();
 		commands.pop();
@@ -50,11 +50,11 @@ void generate_snake_piece(vector<Point> &snake, stack<char> commands, int width,
 
 	if (last_command == 'w' || last_command == 'W')
 	{
-		possibilities.insert(pair<int, Point>(3, {x : tail.x, y : tail.y - 1}));
+		possibilities.insert(pair<int, Point>(2, {x : tail.x, y : tail.y + 1}));
 	}
 	if (last_command == 's' || last_command == 'S')
 	{
-		possibilities.insert(pair<int, Point>(2, {x : tail.x, y : tail.y + 1}));
+		possibilities.insert(pair<int, Point>(3, {x : tail.x, y : tail.y - 1}));
 	}
 	if (last_command == 'a' || last_command == 'A')
 	{
@@ -72,11 +72,15 @@ void handle_snake(vector<Point> &snake, stack<char> &command_stack, int width, i
 {
 	stack<char> temp_command_stack;
 
-	for (int i = 0; i < snake.size() && !command_stack.empty(); i++, command_stack.pop())
+	for (int i = 0; i < snake.size(); i++)
 	{
 		char command = command_stack.top();
 		temp_command_stack.push(command);
 		handle_snake_body_position(snake[i], command, width, height);
+		if (command_stack.size() > 1)
+		{
+			command_stack.pop();
+		}
 	}
 
 	while (!command_stack.empty())
