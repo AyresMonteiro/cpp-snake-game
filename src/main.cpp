@@ -1,9 +1,6 @@
 #include <iostream>
-#include <queue>
 #include <stack>
 #include <signal.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
 #include <vector>
 
