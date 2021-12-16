@@ -40,15 +40,6 @@ void handle_shutdown(int)
 	program_error();
 }
 
-void print_pilha(stack<char> pilha)
-{
-	while (!pilha.empty())
-	{
-		cout << pilha.top() << endl;
-		pilha.pop();
-	}
-}
-
 void print_game_screen()
 {
 	system("clear");
@@ -58,8 +49,6 @@ void print_game_screen()
 	cout << "\"A\" para ir para esquerda e \"D\" para ir para direita!" << endl;
 
 	print_map(HEIGHT, WIDTH, snake, prize);
-
-	print_pilha(command_stack);
 }
 
 int main()
