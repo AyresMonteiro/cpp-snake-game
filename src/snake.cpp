@@ -172,6 +172,8 @@ void key_listening(stack<char> &commands)
 
 void print_map(int height, int width, vector<Point> snake, Point prize)
 {
+	bool touched = did_snake_touched_itself(snake);
+
 	for (int i = 0; i < height; i++)
 	{
 		for (int j = 0; j < width; j++)
@@ -182,15 +184,26 @@ void print_map(int height, int width, vector<Point> snake, Point prize)
 			{
 				if (snake[k].x == j && snake[k].y == i)
 				{
+
 					if (k == 0)
 					{
 						cout << "\033[1;31m";
+
+						if (touched)
+						{
+							cout << "\033[47m";
+						}
 					}
 
 					cout << "O";
 					if (k == 0)
 					{
 						cout << "\033[1;37m";
+
+						if (touched)
+						{
+							cout << "\033[40m";
+						}
 					}
 					printed_snake++;
 					break;
