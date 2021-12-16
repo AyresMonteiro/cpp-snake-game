@@ -8,6 +8,19 @@
 
 using namespace std;
 
+bool did_snake_touched_itself(std::vector<Point> snake)
+{
+	for (int i = 1; i < snake.size(); i++)
+	{
+		if (snake[i].x == snake[0].x && snake[i].y == snake[0].y)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
 bool did_snake_touched_prize(Point prize, Point snake_head)
 {
 	if (snake_head.x == prize.x && snake_head.y == prize.y)
