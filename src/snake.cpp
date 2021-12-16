@@ -169,7 +169,15 @@ void print_map(int height, int width, vector<Point> snake, Point prize)
 			{
 				if (snake[k].x == j && snake[k].y == i)
 				{
+					if (k == 0)
+					{
+						cout << "\033[1;31m";
+					}
 					cout << "O";
+					if (k == 0)
+					{
+						cout << "\033[0;37m";
+					}
 					printed_snake++;
 					break;
 				}
