@@ -50,6 +50,8 @@ void print_game_screen()
 
 int main()
 {
+	cout << "\033[1;37m";
+
 	if (catch_signal(SIGINT, handle_shutdown) == -1)
 	{
 		program_error();

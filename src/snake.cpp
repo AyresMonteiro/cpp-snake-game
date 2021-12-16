@@ -173,10 +173,11 @@ void print_map(int height, int width, vector<Point> snake, Point prize)
 					{
 						cout << "\033[1;31m";
 					}
+
 					cout << "O";
 					if (k == 0)
 					{
-						cout << "\033[0;37m";
+						cout << "\033[1;37m";
 					}
 					printed_snake++;
 					break;
